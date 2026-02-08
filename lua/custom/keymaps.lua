@@ -32,3 +32,10 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', '<leader>rr', ':!ts-node %<CR>', { buffer = true, desc = 'Run TypeScript file' })
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function()
+    vim.keymap.set('n', '<leader>rr', ':luafile %<CR>', { buffer = true, desc = 'Run Lua in Neovim' })
+  end,
+})
