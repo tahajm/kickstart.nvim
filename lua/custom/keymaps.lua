@@ -1,2 +1,5 @@
 vim.keymap.set('n', '<leader>e', ':Explore<CR>', { desc = 'Open netrw explorer' })
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+vim.keymap.set('n', '<leader>tt', function()
+  require('toggleterm').toggle(1, 15, 'Terminal', 'float')
+end, { desc = 'Toggle Terminal' })
