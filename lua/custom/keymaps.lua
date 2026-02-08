@@ -1,9 +1,5 @@
--- open file explorer !! it is not working while oil is there
-vim.keymap.set('n', '<leader>e', ':Explore<CR>', { desc = 'Open netrw explorer' })
-
 -- Oil: - open parent directory
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-
 
 -- Rust: <leader>rr
 vim.api.nvim_create_autocmd('FileType', {
