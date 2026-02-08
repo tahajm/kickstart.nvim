@@ -4,10 +4,6 @@ vim.keymap.set('n', '<leader>e', ':Explore<CR>', { desc = 'Open netrw explorer' 
 -- Oil: - open parent directory
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 
--- ToggleTerm: open terminal in float mode
-vim.keymap.set('n', '<leader>tt', function()
-  require('toggleterm').toggle(1, 15, 'Terminal', 'float')
-end, { desc = 'Toggle Terminal' })
 
 -- Rust: <leader>rr
 vim.api.nvim_create_autocmd('FileType', {
