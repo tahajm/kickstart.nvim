@@ -28,5 +28,12 @@ return {
       end,
       desc = 'Snacks File Explorer',
     },
+    {
+      '<leader>gg',
+      function()
+        Snacks.lazygit()
+      end,
+      desc = 'Lazygit',
+    },
   },
 }
