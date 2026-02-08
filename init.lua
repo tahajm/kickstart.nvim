@@ -249,7 +249,7 @@ rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   { 'NMAC427/guess-indent.nvim', opts = {
-    auto_cmd = true,
+    auto_cmd = false,
     default_shiftwidth = 4,
     default_tabstop = 4,
   } },
@@ -773,7 +773,14 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        json = { 'prettier' },
+        html = { 'prettier' },
+        css = { 'prettier' },
+        markdown = { 'prettier' },
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
@@ -1032,5 +1039,6 @@ require('lazy').setup({
 })
 
 require 'custom.keymaps'
+require 'custom.options'
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
