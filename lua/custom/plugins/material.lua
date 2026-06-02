@@ -1,22 +1,12 @@
 return {
   'marko-cerovac/material.nvim',
-  priority = 1000, -- Load before other plugins
+  lazy = false,
+  priority = 1000,
   config = function()
-    -- Configure material theme
     require('material').setup {
-      contrast = {
-        terminal = false, -- Enable contrast for the built-in terminal
-        sidebars = false, -- Enable contrast for sidebar-like windows
-        floating_windows = false, -- Enable contrast for floating windows
-        cursor_line = false, -- Enable darker background for the cursor line
-        lsp_virtual_text = false, -- Enable contrasted background for lsp virtual text
-        non_current_windows = false, -- Enable contrasted background for non-current windows
-        filetypes = {}, -- Specify which filetypes get the contrasted background
-      },
       styles = {
-        comments = { italic = false },
-        strings = {},
-        keywords = {},
+        comments = { italic = true },
+        keywords = { italic = true },
         functions = {},
         variables = {},
       },
@@ -27,25 +17,19 @@ return {
         'telescope',
         'which-key',
       },
-      disable = {
-        colored_cursor = false, -- Disable the colored cursor
-        borders = false, -- Disable borders between vertically split windows
-        background = false, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
-        term_colors = false, -- Prevent the theme from setting terminal colors
-        eob_lines = false, -- Hide the end-of-buffer lines
-      },
       high_visibility = {
-        lighter = false, -- Enable higher contrast text for lighter style
-        darker = false, -- Enable higher contrast text for darker style
+        darker = true,
       },
-      lualine_style = 'default', -- Lualine style ( can be 'stealth' or 'default' )
-      async_loading = true, -- Load parts of the theme asynchronously for faster startup
+      lualine_style = 'default',
     }
-
-    -- Set the material style to 'darker'
     vim.g.material_style = 'darker'
-
-    -- Apply the colorscheme
-    vim.cmd 'colorscheme material'
+    -- Switch to 'colorscheme material' to use material.nvim instead
+    vim.cmd 'colorscheme material-darker-hc'
+    vim.api.nvim_create_autocmd('VimEnter', {
+      once = true,
+      callback = function()
+        vim.cmd 'colorscheme material-darker-hc'
+      end,
+    })
   end,
 }
