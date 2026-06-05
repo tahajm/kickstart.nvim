@@ -967,7 +967,7 @@ require('lazy').setup({
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     config = function()
       require('nvim-treesitter').setup {
-        ensure_installed = { 'vue', 'tsx', 'typescript', 'javascript' },
+        ensure_installed = { 'vue', 'tsx', 'typescript', 'javascript', 'css' },
       }
       -- The new nvim-treesitter only manages parser installation.
       -- Highlighting must be enabled explicitly via vim.treesitter.start().
