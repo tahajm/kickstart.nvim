@@ -1,3 +1,6 @@
+-- Show diagnostic for current line in a float (like K but for errors)
+vim.keymap.set('n', 'Q', vim.diagnostic.open_float, { desc = 'Show line diagnostic' })
+
 -- Oil: - open parent directory
 vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
 

@@ -1,3 +1,5 @@
+vim.diagnostic.config { virtual_text = false }
+
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
