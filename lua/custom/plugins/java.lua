@@ -96,8 +96,8 @@ return {
             map('<leader>cr', function()
               local file = vim.fn.expand '%:p'
               local class = vim.fn.expand '%:t:r'
-              local dir = vim.fn.expand '%:p:h'
-              local cmd = 'cd ' .. dir .. ' && javac ' .. file .. ' && java ' .. class
+              local tmp = vim.fn.stdpath 'cache' .. '/java-run'
+              local cmd = 'mkdir -p ' .. tmp .. ' && javac -d ' .. tmp .. ' ' .. file .. ' && java -cp ' .. tmp .. ' ' .. class
               require('toggleterm.terminal').Terminal:new({ cmd = cmd, direction = 'horizontal', close_on_exit = false }):toggle()
             end, 'Run file')
 
