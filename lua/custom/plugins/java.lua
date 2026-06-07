@@ -93,11 +93,16 @@ return {
             map('<leader>cm', jdtls.extract_method, 'Extract method')
             map('<leader>ct', jdtls.test_nearest_method, 'Test nearest method')
             map('<leader>cT', jdtls.test_class, 'Test class')
+            map('<leader>cr', function()
+              local file = vim.fn.expand '%:p'
+              local class = vim.fn.expand '%:t:r'
+              local dir = vim.fn.expand '%:p:h'
+              local cmd = 'cd ' .. dir .. ' && javac ' .. file .. ' && java ' .. class
+              require('toggleterm.terminal').Terminal:new({ cmd = cmd, direction = 'horizontal', close_on_exit = false }):toggle()
+            end, 'Run file')
 
-            -- Enable debug/test extensions if bundles loaded
             if #bundles > 0 then
               jdtls.setup_dap { hotcodereplace = 'auto' }
-              require('jdtls.dap').setup_dap_main_class_configs()
             end
           end,
         }
